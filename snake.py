@@ -33,15 +33,20 @@ def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
+    if food.x<-200 or food.x>190 or food.y<-200 or food.y>190:
+        food.x = 0
+        food.y = 0
+    food.x = food.x + randrange(-1,2)*10
+    food.y = food.y + randrange(-1,2)*10
 
     if not inside(head) or head in snake:
-        square(head.x, head.y, 9, 'red')
+        square(head.x, head.y, 15, 'red')
         update()
         return
 
     snake.append(head)
 
-    if head == food:
+    if head==food:
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
