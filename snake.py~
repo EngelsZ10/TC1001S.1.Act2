@@ -53,8 +53,7 @@ def move():
     for body in snake:
         square(body.x, body.y, 9, color[color_snake])
 
-    square(food.x, food.y, 9, color[color_food])
-    update()
+    square(food.x, food.y, 9, color[color_food])update()
     ontimer(move, 100)
 
 while color_snake == color_food:
